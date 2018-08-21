@@ -55,25 +55,21 @@ void print_header_summary(Elf64_Ehdr *ehdr){
 			break;
 	} 
 	puts(output);
-
-//typedef struct
-//{
-//  unsigned char	e_ident[EI_NIDENT];/* Magic number and other info */
-//  Elf64_Half	e_type;		/* Object file type */
-//  Elf64_Half	e_machine;	/* Architecture */
-//  Elf64_Word	e_version;	/* Object file version */
-//  Elf64_Addr	e_entry;	/* Entry point virtual address */
-//  Elf64_Off	e_phoff;	/* Program header table file offset */
-//  Elf64_Off	e_shoff;	/* Section header table file offset */
-//  Elf64_Word	e_flags;	/* Processor-specific flags */
-//  Elf64_Half	e_ehsize;	/* ELF header size in bytes */
-//  Elf64_Half	e_phentsize;	/* Program header table entry size */
-//  Elf64_Half	e_phnum;	/* Program header table entry count */
-//  Elf64_Half	e_shentsize;	/* Section header table entry size */
-//  Elf64_Half	e_shnum;	/* Section header table entry count */
-//  Elf64_Half	e_shstrndx;	/* Section header string table index */
-//} Elf64_Ehdr;
-
+	write(1,ehdr->e_ident,EI_NIDENT);
+	puts("");
+	printf("e_type %d\n",ehdr->e_type);
+	printf("e_machine %d\n",ehdr->e_machine);
+	printf("e_version %d\n",ehdr->e_version);
+	printf("Entry point 0x%x:\n",ehdr->e_entry);
+	printf("Program header table file offset %d\n",ehdr->e_phoff);
+	printf("Section header table file offset %d\n",ehdr->e_shoff);
+	printf("Raw e_flags %d\n",ehdr->e_flags);
+	printf("Elf header size %d\n",ehdr->e_ehsize);
+	printf("Program header table entry size %d\n",ehdr->e_phentsize);
+	printf("Program header table entry count %d\n",ehdr->e_phnum);
+	printf("Section header table entry size %d\n",ehdr->e_shentsize);
+	printf("Section header table entry count %d\n",ehdr->e_shnum);
+	printf("Section header string table index %d\n",ehdr->e_shstrndx);
 }
 
 int main(int argc, char **argv, char **envp){

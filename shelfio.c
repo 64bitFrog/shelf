@@ -37,8 +37,8 @@ uint8_t *load_elf(char *filename){
 	}
 	printf("Opened %s\n",filename);
 
-	if(((Elf64_Ehdr *)(mem))->e_type == ET_EXEC) 
-		printf("%s is of type executable (ET_EXEC)\n", filename);
+	//if(((Elf64_Ehdr *)(mem))->e_type == ET_EXEC) 
+	//	printf("%s is of type executable (ET_EXEC)\n", filename);
 	
 	return mem;
 }
